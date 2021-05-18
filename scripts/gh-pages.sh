@@ -13,8 +13,12 @@ cd ./docs/.vitepress/dist
 # echo 'www.example.com' > CNAME
 
 git init
+git config user.name 'imjeen'
+git config user.email 'imjeen@sina.com'
 git add -A
 git commit -m 'deploy to the gh-pages'
 
 # 如果发布到 https://<USERNAME>.github.io
 git push -f git@github.com:imjeen/v-tricks.git master:gh-pages
+
+rm -rf ./docs/.vitepress/dist/.git

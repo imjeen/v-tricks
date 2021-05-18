@@ -1,7 +1,34 @@
 const buildNavChildren = (name) => ({
   text: name,
-  link: `./../components/${name}/index`,
+  link: `/components/${name}/index`,
 });
+
+const sidebar = [
+  {
+    text: "介绍",
+    link: "/guide",
+  },
+
+  {
+    text: "基础组件",
+    children: [
+      //
+      "Barrage",
+    ].map(buildNavChildren),
+  },
+
+  {
+    text: "展示组件",
+    children: [
+      //
+      "Skeleton",
+    ].map(buildNavChildren),
+  },
+  // {
+  //   text: "表单组件",
+  //   children: ["Input"].map(buildNavChildren),
+  // },
+];
 
 module.exports = {
   lang: "zh-CN",
@@ -34,32 +61,7 @@ module.exports = {
       },
       { text: "GitHub", link: "https://github.com/imjeen/v-tricks" },
     ],
-    sidebar: [
-      {
-        text: "介绍",
-        link: "/guide",
-      },
-
-      {
-        text: "基础组件",
-        children: [
-          //
-          "Barrage",
-        ].map(buildNavChildren),
-      },
-
-      {
-        text: "展示组件",
-        children: [
-          //
-          "Skeleton",
-        ].map(buildNavChildren),
-      },
-      // {
-      //   text: "表单组件",
-      //   children: ["Input"].map(buildNavChildren),
-      // },
-    ],
+    sidebar,
   },
   markdown: {
     // options for markdown-it-anchor

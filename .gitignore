@@ -4,4 +4,6 @@ dist
 dist-ssr
 *.local
 
+
+/docs/components
 temp/
