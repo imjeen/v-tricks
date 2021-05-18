@@ -23,14 +23,23 @@
 </template>
 
 <script>
+// This is a description of the component
 export default {
+  name: "Skeleton",
   props: {
+    // 头像
     avatar: { type: Boolean, default: true },
+    // 左半宽度
     leftWidth: { type: String, default: "25%" },
+    // 标题
     title: { type: Boolean, default: true },
+    // 名称
     name: { type: Boolean, default: true },
+    // 行数
     rows: { type: Number, default: 3 },
+    // 行宽
     rowsWidth: { type: [String, Array], default: "100%" },
+    // 重复次数
     repeat: { type: Number, default: 3 },
   },
   data() {

@@ -1,8 +1,10 @@
 import { App } from "vue";
+import Test from "./Test/index.vue";
 import Barrage from "./Barrage/index.vue";
 import Skeleton from "./Skeleton/index.vue";
 
 const componentsMap = {
+  Test,
   Skeleton,
   Barrage,
 };

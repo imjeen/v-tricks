@@ -8,11 +8,11 @@ const sidebar = [
     text: "介绍",
     link: "/guide",
   },
-
   {
     text: "基础组件",
     children: [
-      //
+      // process.env.NODE_ENV === 'production'
+      "Test", // 测试
       "Barrage",
     ].map(buildNavChildren),
   },
@@ -73,6 +73,7 @@ module.exports = {
     config: (md) => {
       // use more markdown-it plugins
       // md.use(require('markdown-it-xxx'))
+      md.use(require("markdown-it-vuese"));
       const { demoBlock, demoCode } = require("./plugins/md-loader");
       demoBlock(md);
       demoCode(md); // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')

@@ -10,6 +10,7 @@
 
 ## 参数
 
+<[vuese](@/components/Barrage/index.vue)
 
 ## 源码
 

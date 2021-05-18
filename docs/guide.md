@@ -1,11 +1,6 @@
-# Button 按钮
-
-常用的操作按钮。
+# 介绍
 
 ## 基础用法
-
-基础的按钮用法。
-
 
 ## Attributes
 
@@ -14,4 +9,3 @@
 | size    | 尺寸   | string  | large / small / mini                               | default |
 | type    | 类型   | string  | primary / success / warning / info / danger / text | primary |
 | loading | 加载中 | boolean | —                                                  | false   |
-

@@ -9,7 +9,7 @@
 
 ## 参数
 
-4
+<[vuese](@/components/Skeleton/index.vue)
 
 ## 源码
 
