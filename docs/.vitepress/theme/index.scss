@@ -1,0 +1,56 @@
+.docs-preview-part {
+  margin-bottom: 20px;
+
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
+  & > * {
+    margin-right: 8px;
+  }
+}
+
+p.sidebar-link:first-child:last-child {
+  color: #ccc;
+  user-select: none;
+}
+
+th,
+td {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    max-width: 80%;
+  }
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1em;
+  border-left: 3px solid #b4bcc2;
+  color: inherit;
+
+  & > h4:first-child {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+}
+
+p {
+  margin: 10px 0;
+}
+
+aside {
+  z-index: 202;
+}
+
+header {
+  z-index: 203;
+}
