@@ -2,9 +2,11 @@ import { App } from "vue";
 import Test from "./Test/index.vue";
 import Barrage from "./Barrage/index.vue";
 import Skeleton from "./Skeleton/index.vue";
+import Button from "./Button";
 
 const componentsMap = {
   Test,
+  Button,
   Skeleton,
   Barrage,
 };
@@ -29,3 +31,6 @@ export const install = (app: App<Element>) => {
   });
 };
 
+export default {
+  install,
+};

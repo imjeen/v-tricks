@@ -3,11 +3,21 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-# 生成静态文件
-yarn run docs:build
+rm -rf ./temp/github
+mkdir -p ./temp/github
+mkdir -p ./temp/github/docs
 
-# 进入生成的文件夹
-cd ./docs/.vitepress/dist
+# 生成静态文档 Docs
+rm -rf ./docs/.vitepress/dist
+yarn run docs:build
+# 生成示例
+rm -rf ./dist
+yarn build
+
+cp -r ./dist/ ./temp/github/
+cp -r ./docs/.vitepress/dist/ ./temp/github/docs/
+
+cd ./temp/github
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
@@ -18,7 +28,6 @@ git config user.email 'imjeen@sina.com'
 git add -A
 git commit -m 'deploy to the gh-pages'
 
-# 如果发布到 https://<USERNAME>.github.io
 git push -f git@github.com:imjeen/v-tricks.git master:gh-pages
 
-rm -rf ./docs/.vitepress/dist/.git
+cd -

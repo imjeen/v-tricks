@@ -5,7 +5,7 @@ const buildNavChildren = (name) => ({
 
 const sidebar = [
   {
-    text: "介绍",
+    text: "指引",
     link: "/guide",
   },
   {
@@ -13,6 +13,7 @@ const sidebar = [
     children: [
       // process.env.NODE_ENV === 'production'
       "Test", // 测试
+      "Button",
       "Barrage",
     ].map(buildNavChildren),
   },
@@ -34,7 +35,7 @@ module.exports = {
   lang: "zh-CN",
   title: "v-tricks",
   description: "组件库",
-  base: "/v-tricks/",
+  base: "/v-tricks/docs/",
   themeConfig: {
     logo: "/logo.svg",
     docsDir: "docs",

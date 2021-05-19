@@ -1,26 +1,43 @@
 <template>
   <div
-    :class="['demo-block', blockClass, customClass ? customClass : '', { hover } ]"
-    @mouseenter="hover=true"
-    @mouseleave="hover=false">
+    :class="[
+      'demo-block',
+      blockClass,
+      customClass ? customClass : '',
+      { hover },
+    ]"
+    @mouseenter="hover = true"
+    @mouseleave="hover = false"
+  >
     <div class="source">
-      <slot/>
+      <slot />
     </div>
     <div class="meta" ref="meta">
       <div v-if="$slots.description" class="description" ref="description">
-        <slot name="description"/>
+        <slot name="description" />
       </div>
       <div class="highlight" ref="highlight">
-        <slot name="highlight"/>
+        <slot name="highlight" />
       </div>
     </div>
     <div
-        class="demo-block-control"
-        ref="control"
-        :class="{ 'is-fixed': fixedControl }"
-        @click="isExpanded=!isExpanded">
+      class="demo-block-control"
+      ref="control"
+      :class="{ 'is-fixed': fixedControl }"
+      @click="isExpanded = !isExpanded"
+    >
       <transition name="arrow-slide">
-        <i :class="['iconfont', 'control-icon', { 'icon-caret-down': !isExpanded, 'icon-caret-up': isExpanded, 'hovering': hover }]"></i>
+        <i
+          :class="[
+            'iconfont',
+            'control-icon',
+            {
+              'icon-caret-down': !isExpanded,
+              'icon-caret-up': isExpanded,
+              hovering: hover,
+            },
+          ]"
+        ></i>
       </transition>
       <transition name="text-slide">
         <span v-show="hover" class="control-text">{{ controlText }}</span>
@@ -30,100 +47,123 @@
 </template>
 
 <script>
-import { ref, reactive, computed, watch, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
-import { throttle } from 'lodash-es'
+import {
+  ref,
+  reactive,
+  computed,
+  watch,
+  onMounted,
+  onBeforeUnmount,
+  nextTick,
+  getCurrentInstance,
+} from "vue";
+import { throttle } from "lodash-es";
 
 export default {
-  name: 'DemoBlock',
+  name: "DemoBlock",
   props: {
-    customClass: String
+    customClass: String,
   },
-  setup (props, context) {
-    const vm = getCurrentInstance()
-    const pathArr = vm.appContext.config.globalProperties.$page.relativePath.split('/')
-    const component = pathArr[pathArr.length - 1].split('.')[0]
+  setup(props, context) {
+    const vm = getCurrentInstance();
+    const pathArr = vm.appContext.config.globalProperties.$page.relativePath.split(
+      "/"
+    );
+    const component = pathArr[pathArr.length - 1].split(".")[0];
     const blockClass = computed(() => {
-      return `demo-${component}`
-    })
+      return `demo-${component}`;
+    });
 
-    const hover = ref(false)
-    const fixedControl = ref(false)
-    const isExpanded = ref(false)
+    const hover = ref(false);
+    const fixedControl = ref(false);
+    const isExpanded = ref(false);
     const controlText = computed(() => {
-      return isExpanded.value ? '隐藏代码' : '显示代码'
-    })
+      return isExpanded.value ? "隐藏代码" : "显示代码";
+    });
 
     // template refs
-    const highlight = ref(null)
-    const description = ref(null)
-    const meta = ref(null)
-    const control = ref(null)
+    const highlight = ref(null);
+    const description = ref(null);
+    const meta = ref(null);
+    const control = ref(null);
 
     const codeAreaHeight = computed(() => {
       if (description.value) {
-        return description.value.clientHeight + highlight.value.clientHeight + 20
+        return (
+          description.value.clientHeight + highlight.value.clientHeight + 20
+        );
       }
-      return highlight.value.clientHeight
-    })
+      return highlight.value.clientHeight;
+    });
 
     const _scrollHandler = () => {
-      const { top, bottom, left } = meta.value.getBoundingClientRect()
-      const innerHeight = window.innerHeight || document.body.clientHeight
-      fixedControl.value = bottom > innerHeight && top + 44 <= innerHeight
-      control.value.style.left = fixedControl.value ? `${ left }px` : '0'
-    }
-    const scrollHandler = throttle(_scrollHandler, 200)
+      const { top, bottom, left } = meta.value.getBoundingClientRect();
+      const innerHeight = window.innerHeight || document.body.clientHeight;
+      fixedControl.value = bottom > innerHeight && top + 44 <= innerHeight;
+      control.value.style.left = fixedControl.value ? `${left}px` : "0";
+    };
+    const scrollHandler = throttle(_scrollHandler, 200);
     const removeScrollHandler = () => {
-      window.removeEventListener('scroll', scrollHandler)
-    }
+      window.removeEventListener("scroll", scrollHandler);
+    };
 
-    watch(isExpanded, val => {
-      meta.value.style.height = val ? `${ codeAreaHeight.value + 1 }px` : '0'
+    watch(isExpanded, (val) => {
+      meta.value.style.height = val ? `${codeAreaHeight.value + 1}px` : "0";
       if (!val) {
-        fixedControl.value = false
-        control.value.style.left = '0'
-        removeScrollHandler()
-        return
+        fixedControl.value = false;
+        control.value.style.left = "0";
+        removeScrollHandler();
+        return;
       }
       setTimeout(() => {
-        window.addEventListener('scroll', scrollHandler)
-        _scrollHandler()
-      }, 300)
-    })
+        window.addEventListener("scroll", scrollHandler);
+        _scrollHandler();
+      }, 300);
+    });
 
     onMounted(() => {
       nextTick(() => {
         if (!description.value) {
-          highlight.value.style.width = '100%'
+          highlight.value.style.width = "100%";
         }
-      })
-    })
-
+      });
+    });
 
     onBeforeUnmount(() => {
-      removeScrollHandler()
-    })
+      removeScrollHandler();
+    });
 
-    return { blockClass, hover, fixedControl, isExpanded, controlText, highlight, description, meta, control }
-  }
-}
+    return {
+      blockClass,
+      hover,
+      fixedControl,
+      isExpanded,
+      controlText,
+      highlight,
+      description,
+      meta,
+      control,
+    };
+  },
+};
 </script>
 
 <style scoped>
 .demo-block {
   border: solid 1px #ebebeb;
   border-radius: 3px;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .demo-block.hover {
-  box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
+  box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
+    0 2px 4px 0 rgba(232, 237, 250, 0.5);
 }
 
 .source {
   box-sizing: border-box;
   padding: 24px;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .meta {
@@ -131,7 +171,7 @@ export default {
   background-color: var(--code-bg-color);
   overflow: hidden;
   height: 0;
-  transition: height .2s;
+  transition: height 0.2s;
 }
 
 .description {
@@ -172,7 +212,7 @@ export default {
   display: inline-block;
   font-size: 16px;
   line-height: 44px;
-  transition: .3s;
+  transition: 0.3s;
 }
 .demo-block-control .control-icon.hovering {
   transform: translateX(-40px);
@@ -184,7 +224,7 @@ export default {
   font-size: 14px;
   line-height: 44px;
   font-weight: 500;
-  transition: .3s;
+  transition: 0.3s;
   display: inline-block;
 }
 
@@ -210,7 +250,7 @@ export default {
 }
 </style>
 <style>
-.highlight div[class*='language-'] {
+.highlight div[class*="language-"] {
   margin: 0 !important;
 }
 </style>
