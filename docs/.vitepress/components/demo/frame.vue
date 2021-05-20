@@ -25,6 +25,7 @@ import {
   nextTick,
   getCurrentInstance,
 } from "vue";
+
 export default {
   name: "Frame",
   props: ["hashPath"],
@@ -38,11 +39,14 @@ export default {
 
     console.log("hashPath", props.hashPath);
 
-    const url = `${
-      location.hostname === "localhost"
-        ? "http://localhost:3001"
-        : location.origin
-    }/v-tricks/${props.hashPath || `#/component/${pathArr.join("/")}`}`;
+    const url =
+      typeof location == "undefined"
+        ? ""
+        : `${
+            location.hostname === "localhost"
+              ? "http://localhost:3001"
+              : location.origin
+          }/v-tricks/${props.hashPath || `#/components/${pathArr.join("/")}`}`;
 
     return { url };
   },

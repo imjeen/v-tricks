@@ -38,7 +38,7 @@ const routes = [
     ],
   },
   {
-    path: "/component",
+    path: "/components",
     component: Nest,
     children: [
       {

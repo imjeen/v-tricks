@@ -10,7 +10,6 @@
     @mouseleave="hover = false"
   >
     <div class="source">
-      <iframe :src="demoURL" frameborder="0" width="100%"></iframe>
       <slot />
     </div>
     <div class="meta" ref="meta">
@@ -66,8 +65,8 @@ export default {
     customClass: String,
   },
   setup(props, context) {
-    console.log("#props", props);
-    console.log("#context", context);
+    // console.log("#props", props);
+    // console.log("#context", context);
 
     const vm = getCurrentInstance();
     const pathArr = vm.appContext.config.globalProperties.$page.relativePath.split(
@@ -78,12 +77,6 @@ export default {
     const blockClass = computed(() => {
       return `demo__${pathArr.join("-")}`;
     });
-
-    const demoURL = `${
-      location.hostname === "localhost"
-        ? "http://localhost:3001"
-        : location.origin
-    }/v-tricks/#/component/${pathArr.join("/")}`;
 
     const hover = ref(false);
     const fixedControl = ref(false);
@@ -155,7 +148,6 @@ export default {
       description,
       meta,
       control,
-      demoURL,
     };
   },
 };
