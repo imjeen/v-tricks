@@ -23,8 +23,19 @@ const routes = [
   },
   {
     path: "/animations",
-    // @ts-ignore
-    component: () => import("@docs/animations/demo"),
+    component: Nest,
+    children: [
+      {
+        path: "",
+        // @ts-ignore
+        component: () => import("@docs/animations/demo"),
+      },
+      {
+        path: "scene",
+        // @ts-ignore
+        component: () => import("@docs/animations/scene"),
+      },
+    ],
   },
   {
     path: "/component",
