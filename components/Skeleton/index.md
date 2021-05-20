@@ -1,10 +1,8 @@
-## 示例
+## 代码演示
 
-:::demo
+:::frame #/components/Skeleton
 
-```vue
-<Skeleton />
-```
+<<< @/components/Skeleton/demo.vue
 :::
 
 ## 参数

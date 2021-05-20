@@ -1,11 +1,7 @@
-## 示例
+## 代码演示
 
-:::demo
-
-```vue
-<Barrage :list="['感恩', '泪目']" />
-```
-
+:::frame
+<<< @/components/Button/demo.tsx
 :::
 
 ## 参数

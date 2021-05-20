@@ -2,7 +2,7 @@
   "name": "v-tricks",
   "version": "1.0.0",
   "scripts": {
-    "start": "vite build --c ./build/lib.config.ts --watch & (npm run ln && cd docs && vitepress)",
+    "start": "vite build && (vite build --c ./build/lib.config.ts --watch & (npm run ln && cd docs && vitepress))",
     "docs:build": "npm run cp && vitepress build docs",
     "build:lib": "vite build --c ./build/lib.config.ts",
     "build": "vite build",

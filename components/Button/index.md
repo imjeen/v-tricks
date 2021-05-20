@@ -1,11 +1,7 @@
-## 示例
+## 代码演示
 
-:::demo
-
-```vue
-<Button />
-```
-
+:::frame
+<<< @/components/Button/demo.tsx
 :::
 
 ## 参数
@@ -13,7 +9,6 @@
 ::: tip
 This is a tip
 :::
-
 
 ## 参数
 

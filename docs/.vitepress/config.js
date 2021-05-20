@@ -1,5 +1,5 @@
 const buildNavChildren = (name) => ({
-  text: name,
+  text: `<${name} />`,
   link: `/components/${name}/index`,
 });
 
@@ -75,9 +75,10 @@ module.exports = {
       // use more markdown-it plugins
       // md.use(require('markdown-it-xxx'))
       md.use(require("markdown-it-vuese"));
-      const { demoBlock, demoCode } = require("./plugins/md-loader");
+      const { demoBlock, demoCode, frame } = require("./plugins/md-loader");
       demoBlock(md);
       demoCode(md); // 代码高亮的语言默认为vue，可传入第二个参数自定义语言 demoCode(md, 'html')
+      frame(md);
     },
   },
 };

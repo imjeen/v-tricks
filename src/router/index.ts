@@ -33,6 +33,10 @@ const routes = [
         path: "Barrage",
         component: () => import("@lib/Barrage/demo.vue"),
       },
+      {
+        path: "Skeleton",
+        component: () => import("@lib/Skeleton/demo.vue"),
+      },
     ],
   },
 ];
