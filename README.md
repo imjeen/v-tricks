@@ -8,7 +8,7 @@
 # 开启文档生成， http://localhost:3000/v-tricks/docs/
 yarn start
 
-# 开启示例生成， http://localhost:3000/v-tricks/
+# 开启示例生成， http://localhost:3001/v-tricks/
 yarn dev
 ```
 

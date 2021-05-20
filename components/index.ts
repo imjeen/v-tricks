@@ -3,12 +3,14 @@ import Test from "./Test/index.vue";
 import Barrage from "./Barrage/index.vue";
 import Skeleton from "./Skeleton/index.vue";
 import Button from "./Button";
+import Icon from "./Icon/index.vue";
 
 const componentsMap = {
   Test,
   Button,
   Skeleton,
   Barrage,
+  Icon,
 };
 
 const components: any[] = Object.keys(componentsMap).map((key) => {

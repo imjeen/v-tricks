@@ -34,6 +34,11 @@ const routes = [
         component: () => import("@lib/Barrage/demo.vue"),
       },
       {
+        path: "Icon",
+        // @ts-ignore
+        component: () => import("@lib/Icon/demo.tsx"),
+      },
+      {
         path: "Skeleton",
         component: () => import("@lib/Skeleton/demo.vue"),
       },

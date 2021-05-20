@@ -13,6 +13,7 @@ const sidebar = [
     children: [
       // process.env.NODE_ENV === 'production'
       "Test", // 测试
+      "Icon",
       "Button",
       "Barrage",
     ].map(buildNavChildren),
