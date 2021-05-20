@@ -9,6 +9,10 @@ const sidebar = [
     link: "/guide",
   },
   {
+    text: "动画",
+    link: "/animations/",
+  },
+  {
     text: "基础组件",
     children: [
       // process.env.NODE_ENV === 'production'
@@ -56,6 +60,7 @@ module.exports = {
     nav: [
       { text: "首页", link: "/" },
       { text: "介绍", link: "/guide" },
+      { text: "动画", link: "/animations/" },
       { text: "组件", link: "/components/Skeleton/" },
       {
         text: "更新日志",

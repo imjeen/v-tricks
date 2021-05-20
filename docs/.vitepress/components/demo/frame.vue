@@ -36,11 +36,13 @@ export default {
     pathArr.shift();
     pathArr.pop();
 
+    console.log("hashPath", props.hashPath);
+
     const url = `${
       location.hostname === "localhost"
         ? "http://localhost:3001"
         : location.origin
-    }/v-tricks/#/component/${pathArr.join("/")}`;
+    }/v-tricks/${props.hashPath || `#/component/${pathArr.join("/")}`}`;
 
     return { url };
   },

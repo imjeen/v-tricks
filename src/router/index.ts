@@ -22,6 +22,11 @@ const routes = [
     component: () => import("@/views/About"),
   },
   {
+    path: "/animations",
+    // @ts-ignore
+    component: () => import("@docs/animations/demo"),
+  },
+  {
     path: "/component",
     component: Nest,
     children: [
