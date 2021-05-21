@@ -50,9 +50,20 @@ const routes = [
         component: () => import("@lib/Barrage/demo.vue"),
       },
       {
+        path: "Input",
+        component: () => import("@lib/Input/demo.vue"),
+      },
+      {
+        path: "Button",
+        component: () => import("@lib/Button/demo.vue"),
+      },
+      {
+        path: "Notify",
+        component: () => import("@lib/Notify/demo.vue"),
+      },
+      {
         path: "Icon",
-        // @ts-ignore
-        component: () => import("@lib/Icon/demo.tsx"),
+        component: () => import("@lib/Icon/demo.vue"),
       },
       {
         path: "Skeleton",

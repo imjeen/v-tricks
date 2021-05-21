@@ -1,7 +1,7 @@
 ## 代码演示
 
 :::frame
-<<< @/components/Button/demo.tsx
+<<< @/components/Button/demo.vue
 :::
 
 ## 参数

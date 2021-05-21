@@ -1,16 +1,19 @@
 import { App } from "vue";
-import Test from "./Test/index.vue";
+
 import Barrage from "./Barrage/index.vue";
 import Skeleton from "./Skeleton/index.vue";
 import Button from "./Button";
-import Icon from "./Icon/index.vue";
+import Icon from "./Icon";
+import CopyLink from "./CopyLink";
+import Input from "./Input";
 
 const componentsMap = {
-  Test,
   Button,
   Skeleton,
   Barrage,
   Icon,
+  CopyLink,
+  Input,
 };
 
 const components: any[] = Object.keys(componentsMap).map((key) => {

@@ -12,6 +12,7 @@
     "release": "sh ./scripts/gh-pages.sh"
   },
   "dependencies": {
+    "clipboard": "^2.0.8",
     "lodash-es": "^4.17.21",
     "vue": "^3.0.11",
     "vue-router": "^4.0.8"

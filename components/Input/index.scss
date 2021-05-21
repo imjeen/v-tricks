@@ -1,0 +1,207 @@
+$name: Input;
+$red: #e74c3c !default;
+$gray-800: #343a40 !default;
+$gray-600: #95a5a6 !default;
+$gray-400: #ced4da !default;
+$gray-100: #f8f9fa !default;
+$text: #2c3e50;
+$white: #fff !default;
+
+@mixin focus {
+  border: 1px solid $gray-800;
+  box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+}
+
+.#{$name}-wrapper {
+  position: relative;
+  display: flex;
+  width: 400px;
+  height: 52px;
+
+  .#{$name} {
+    box-sizing: border-box;
+    display: inline-block;
+    flex: 1;
+    color: $text;
+    padding: 0 20px;
+    font-size: 28px;
+    height: 100%;
+    border: 1px solid $gray-400;
+    outline: none;
+    box-shadow: none;
+    background-color: $white;
+    transition: border 0.2s, box-shadow 0.2s;
+    border-radius: 4px;
+    width: 0;
+
+    &::placeholder {
+      color: $gray-600;
+    }
+
+    &:focus {
+      @include focus;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 5px + 1px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+
+      &-wrapper {
+        position: relative;
+        display: flex;
+        flex: auto;
+      }
+
+      .Icon {
+        font-size: 28px;
+        color: $gray-600;
+      }
+    }
+
+    &-addon {
+      padding: 0 20px;
+      border: 1px solid $gray-400;
+      line-height: 52px;
+      border-radius: 8px;
+      background-color: $gray-100;
+      font-size: 24px;
+      color: $text;
+
+      &-prepend {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+
+        & + .#{$name},
+        & + .#{$name}-icon-wrapper .#{$name} {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      &-append {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+      }
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $gray-100;
+    }
+  }
+
+  // append
+  :nth-last-child(2) {
+    &.#{$name},
+    .#{$name} {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &.has-focus {
+    .#{$name}:not([disabled]) {
+      @include focus;
+    }
+  }
+
+  &.has-error {
+    .#{$name} {
+      border-color: $red;
+      color: $red;
+
+      &::placeholder {
+        color: rgba($red, 0.6);
+      }
+
+      &:focus {
+        border-color: $red;
+        box-shadow: 0 0 0 2px lighten($red, 30%);
+      }
+    }
+
+    &.has-icon {
+      .Icon {
+        color: rgba($red, 0.7);
+      }
+    }
+  }
+
+  &.has-icon {
+    .#{$name} {
+      padding-left: 40px;
+    }
+
+    &.#{$name}-large {
+      .#{$name} {
+        padding-left: 42px;
+      }
+    }
+
+    &.#{$name}-small {
+      .#{$name} {
+        padding-left: 30px;
+      }
+    }
+  }
+
+  &.#{$name}-large {
+    width: 240px;
+    height: 60px;
+
+    .#{$name} {
+      font-size: 32px;
+      padding: 0 20px;
+
+      &-icon {
+        left: 8px + 1px;
+
+        .Icon {
+          font-size: 32px;
+        }
+      }
+
+      &-addon {
+        padding: 0 12px;
+        font-size: 32px;
+      }
+    }
+  }
+
+  &.#{$name}-small {
+    width: 440px;
+    height: 52px;
+
+    .#{$name} {
+      font-size: 24px;
+      padding: 0 18px;
+
+      &-icon {
+        left: 4px + 1px;
+
+        .Icon {
+          font-size: 24px;
+        }
+      }
+
+      &-addon {
+        padding: 0 16px;
+        font-size: 24px;
+        line-height: 52px;
+      }
+    }
+  }
+
+  &.#{$name}-inline {
+    display: inline-flex;
+  }
+
+  &.#{$name}-block {
+    width: 100%;
+  }
+}

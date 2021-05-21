@@ -1,0 +1,207 @@
+$secondary: #95a5a6;
+$primary: #2c3e50;
+$success: #18bc9c;
+$info: #3498db;
+$warning: #f39c12;
+$danger: #e74c3c;
+
+.Button {
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  line-height: 1;
+  padding: 24px 20px;
+  width: auto;
+  height: auto;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+
+  &:active,
+  &.active {
+    transition: background-color 0.05s;
+    box-shadow: inset 0 0 4px 0 rgba(#000, 0.2);
+  }
+
+  &-disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  &-round {
+    border-radius: 36px;
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-loading {
+    position: relative;
+    color: transparent;
+    cursor: not-allowed;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 32px;
+      height: 32px;
+      margin-left: -16px;
+      margin-top: -16px;
+      border: 4px solid;
+      border-radius: 16px;
+      border-top-color: rgba(#000, 0.2);
+      border-right-color: rgba(#000, 0.2);
+      border-left-color: rgba(#fff, 0.8);
+      border-bottom-color: rgba(#fff, 0.8);
+      box-sizing: border-box;
+      animation: button-rotate 0.6s linear infinite;
+    }
+  }
+
+  &-size-small {
+    font-size: 24px;
+    line-height: 36px;
+    padding: 8px 16px;
+
+    &.round {
+      border-radius: 26px;
+    }
+  }
+
+  &-size-large {
+    font-size: 40px;
+    line-height: 1;
+    padding: 20px 36px;
+
+    &.round {
+      border-radius: 48px;
+    }
+  }
+
+  &-default {
+    background-color: $secondary;
+
+    &:hover {
+      background-color: darken($secondary, 5%);
+      box-shadow: inset 0 0 0 1px darken($secondary, 10%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($secondary, 10%);
+    }
+
+    &.disabled,
+    &.loading {
+      background-color: $secondary;
+    }
+  }
+
+  &-primary {
+    background-color: $primary;
+
+    &:hover {
+      background-color: darken($primary, 5%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($primary, 10%);
+    }
+
+    &.btn-disabled,
+    &.btn-loading {
+      background-color: $primary;
+    }
+  }
+
+  &-success {
+    background-color: $success;
+
+    &:hover {
+      background-color: darken($success, 5%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($success, 10%);
+    }
+
+    &.btn-disabled,
+    &.btn-loading {
+      background-color: $success;
+    }
+  }
+
+  &-info {
+    background-color: $info;
+
+    &:hover {
+      background-color: darken($info, 5%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($info, 10%);
+    }
+
+    &.btn-disabled,
+    &.btn-loading {
+      background-color: $info;
+    }
+  }
+
+  &-warning {
+    background-color: $warning;
+
+    &:hover {
+      background-color: darken($warning, 5%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($warning, 10%);
+    }
+
+    &.btn-disabled,
+    &.btn-loading {
+      background-color: $warning;
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+
+    &:hover {
+      background-color: darken($danger, 5%);
+    }
+
+    &:active,
+    &.active {
+      background-color: darken($danger, 10%);
+    }
+
+    &.btn-disabled,
+    &.btn-loading {
+      background-color: $danger;
+    }
+  }
+}
+
+@keyframes button-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

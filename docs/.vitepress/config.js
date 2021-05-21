@@ -1,5 +1,5 @@
 const buildNavChildren = (name) => ({
-  text: `<${name} />`,
+  text: `${name}`,
   link: `/components/${name}/index`,
 });
 
@@ -16,9 +16,9 @@ const sidebar = [
     text: "基础组件",
     children: [
       // process.env.NODE_ENV === 'production'
-      "Test", // 测试
       "Icon",
       "Button",
+      "Notify",
       "Barrage",
     ].map(buildNavChildren),
   },
@@ -30,10 +30,13 @@ const sidebar = [
       "Skeleton",
     ].map(buildNavChildren),
   },
-  // {
-  //   text: "表单组件",
-  //   children: ["Input"].map(buildNavChildren),
-  // },
+  {
+    text: "表单组件",
+    children: [
+      //
+      "Input",
+    ].map(buildNavChildren),
+  },
 ];
 
 module.exports = {

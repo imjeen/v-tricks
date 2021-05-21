@@ -1,13 +1,13 @@
 ## 代码演示
 
 :::frame
-<<< @/components/Icon/demo.tsx
+<<< @/components/Icon/demo.vue
 :::
 
 ## 参数
 
-<[vuese](@/components/Icon/index.vue)
+<[vuese](@/components/Icon/index.tsx)
 
 ## 源码
 
-<<< @/components/Icon/index.vue
+<<< @/components/Icon/index.tsx
