@@ -123,7 +123,7 @@ export default {
     animation: drop 1s linear infinite;
     .stem {
       // prettier-ignore
-      width: 2PX;
+      width: 4PX;
       height: 60%;
       // prettier-ignore
       margin-left: 7PX;
