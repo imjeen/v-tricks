@@ -69,6 +69,10 @@ const routes = [
         path: "Skeleton",
         component: () => import("@lib/Skeleton/demo.vue"),
       },
+      {
+        path: "TabGroup",
+        component: () => import("@lib/TabGroup/demo.vue"),
+      },
     ],
   },
 ];

@@ -28,6 +28,7 @@ const sidebar = [
     children: [
       //
       "Skeleton",
+      "TabGroup",
     ].map(buildNavChildren),
   },
   {

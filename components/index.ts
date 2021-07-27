@@ -2,6 +2,7 @@ import { App } from "vue";
 
 import Barrage from "./Barrage/index.vue";
 import Skeleton from "./Skeleton/index.vue";
+import TabGroup from "./TabGroup/index.vue";
 import Button from "./Button";
 import Icon from "./Icon";
 import CopyLink from "./CopyLink";
@@ -10,6 +11,7 @@ import Input from "./Input";
 const componentsMap = {
   Button,
   Skeleton,
+  TabGroup,
   Barrage,
   Icon,
   CopyLink,
