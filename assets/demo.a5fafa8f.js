@@ -1,0 +1,1 @@
+import{o as r,f as t,r as e}from"./vendor.3c075459.js";const a={data:()=>({}),methods:{},created(){}};a.render=function(a,o,s,n,d,c){const f=e("Barrage");return r(),t(f,{list:["感恩","泪目"]})};export default a;
