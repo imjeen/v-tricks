@@ -19,15 +19,13 @@
 </template>
 
 <script>
-import smoothscroll from "smoothscroll-polyfill";
-// kick off the polyfill!
-smoothscroll.polyfill();
+// import smoothscroll from "smoothscroll-polyfill";
+// // kick off the polyfill!
+// smoothscroll.polyfill();
 // (window as any).__forceSmoothScrollPolyfill__ = true;
 
 import scrollIntoView from "smooth-scroll-into-view-if-needed";
 import { debounce, windowScrollTopTo } from "./utils";
-
-window.scrollIntoView = scrollIntoView;
 
 export default {
   name: "ScrollTab",
