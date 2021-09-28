@@ -73,6 +73,10 @@ const routes = [
         path: "TabGroup",
         component: () => import("@lib/TabGroup/demo.vue"),
       },
+      {
+        path: "ScrollTab",
+        component: () => import("@lib/ScrollTab/demo.vue"),
+      },
     ],
   },
 ];

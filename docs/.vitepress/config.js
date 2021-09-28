@@ -29,6 +29,7 @@ const sidebar = [
       //
       "Skeleton",
       "TabGroup",
+      "ScrollTab",
     ].map(buildNavChildren),
   },
   {

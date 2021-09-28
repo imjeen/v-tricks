@@ -13,7 +13,8 @@ yarn dev
 ```
 
 1. 添加组件到 `/components/` 目录中，并在 `/components/index.ts` 中导入
-   - `demo.vue`: 示例， 由 `src/router` 引用作为页面
+2. 将组件引人到`src/router`
+   - `demo.vue`: 示例
    - `index.md`: 说明文档
    - `inde.vue`: 组件
-2. 在文档配置文件 `/docs/.vitepress/config.js` 中添加路由
+3. 在文档配置文件 `/docs/.vitepress/config.js` 中添加路由
